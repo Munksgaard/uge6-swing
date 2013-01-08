@@ -3,6 +3,7 @@ package gui;
 import javax.swing.JLabel;
 import javax.swing.JTabbedPane;
 import spreadsheet.Spreadsheet;
+import spreadsheet.Application;
 
 
 public final class SpreadsheetsView
@@ -13,9 +14,8 @@ public final class SpreadsheetsView
   public static final SpreadsheetsView instance = new SpreadsheetsView();
 
   private SpreadsheetsView() {
-      Spreadsheet spreadsheet1 = new Spreadsheet();
-      SpreadsheetView spreadsheetview1 = new SpreadsheetView(spreadsheet1);
-      this.add(spreadsheet1.getName(), spreadsheetview1);
+      SpreadsheetView spreadsheetview1 = new SpreadsheetView(Application.instance.getWorksheet());
+      this.add(Application.instance.getWorksheet().getName(), spreadsheetview1);
   }
 
 }
